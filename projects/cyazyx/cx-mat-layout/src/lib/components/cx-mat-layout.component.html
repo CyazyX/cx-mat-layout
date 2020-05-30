@@ -1,0 +1,26 @@
+<mat-sidenav-container class="sidenav-container" role="main">
+
+    <mat-sidenav [ngClass]="{'collapsed': !isSideBySide}" #sidenav class="sidenav" [mode]="mode" [opened]="isOpened"
+        (openedChange)="updateHostClasses()">
+        <!-- Main menu -->
+        <cx-mat-menu [navigationItems]="navigationItems" [fullWidth]="isSideBySide"></cx-mat-menu>
+        <!-- Other footer components to be displayed below menus-->
+        <div class="sidenav-bottom-content">
+            <ng-content select="[role=menu-content]"></ng-content>
+        </div>
+        <!-- Footer that is fixed bottom for the left navigation -->
+        <div class="sidenav-footer">
+            <ng-content select="[role=menu-footer]"></ng-content>
+        </div>
+    </mat-sidenav>
+
+    <main class="sidenav-content" role="main">
+        <!--
+            The page content and everything else is placed here.
+            When used in a component, out content included `<cx-mat-layout>here</cx-mat-layout>`
+            is rendered in this block.
+        -->
+        <ng-content></ng-content>
+    </main>
+
+</mat-sidenav-container>
