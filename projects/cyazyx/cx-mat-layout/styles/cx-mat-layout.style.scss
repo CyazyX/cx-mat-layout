@@ -214,10 +214,11 @@ $hamburgerHiddenMargin: 0 16px 0 -64px;
                 SIDENAV TYPOGRAPHY
 *******************************************/
 .sidenav-content a {
-    color: $blue;
+    // color: $blue;
 
     &:hover {
-        color: $mediumgray;
+        // color: $mediumgray;
+        background-color: rgba(0, 0, 0, 0.308);
     }
 }
 
@@ -286,7 +287,6 @@ mat-sidenav.mat-sidenav.sidenav {
     left: 0;
     padding: 0;
     min-width: 260px;
-    background-color: $white;
     box-shadow: 6px 0 6px rgba(0, 0, 0, 0.10);
 
     &.collapsed {
@@ -317,7 +317,7 @@ mat-sidenav-container div.mat-sidenav-content {
 
 .vertical-menu-item {
     box-sizing: border-box;
-    color: $darkgray;
+    // color: $darkgray;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -330,17 +330,19 @@ mat-sidenav-container div.mat-sidenav-content {
     word-wrap: break-word;
 
     &:hover {
-        background-color: $lightgray;
-        color: $blue;
-        text-shadow: 0 0 5px #ffffff;
+        // background-color: $lightgray;
+        // color: $blue;
+        // text-shadow: 0 0 5px #ffffff;
+        background-color: rgba(0, 0, 0, 0.308);
     }
-
+    
     &:focus {
         outline: $focus-outline-onlight auto 2px;
     }
-
+    
     &.selected {
-        color: $blue;
+        background-color: rgba(0, 0, 0, 0.308);
+        // color: $blue;
     }
 
     &.level-2 {
@@ -377,7 +379,7 @@ button.vertical-menu-item {
 }
 
 .heading {
-    color: $darkgray;
+    // color: $darkgray;
     cursor: pointer;
     position: relative;
     text-transform: uppercase;
@@ -436,7 +438,7 @@ button.vertical-menu-item {
 }
 
 .level-2 {
-    color: $mediumgray;
+    // color: $mediumgray;
     font-family: $main-font;
     @include font-size(14);
     font-weight: 400;
@@ -456,7 +458,7 @@ button.vertical-menu-item {
 }
 
 .level-3 {
-    color: $mediumgray;
+    // color: $mediumgray;
     font-family: $main-font;
     @include font-size(14);
     margin: 0;
@@ -465,7 +467,7 @@ button.vertical-menu-item {
 }
 
 .level-4 {
-    color: $mediumgray;
+    // color: $mediumgray;
     font-family: $main-font;
     @include font-size(14);
     margin: 0;
@@ -487,14 +489,10 @@ cx-mat-menu-menu.top-menu {
 
 
 /************************************************
-            TOP MENU
+            TOPNAV TOOLBAR
 ************************************************/
-// DOCS PAGE / STANDARD: TOPNAV TOOLBAR FIXED
 mat-toolbar.mat-toolbar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
+
     z-index: 10;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
 
@@ -503,7 +501,18 @@ mat-toolbar.mat-toolbar {
     }
 
     mat-icon {
-        color: $white;
+        // color: $white;
+    }
+
+    &.fixed {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+
+    &.relative {
+        position: relative;
     }
 }
 
@@ -514,9 +523,11 @@ mat-toolbar.mat-toolbar {
     padding: 0;
 
     @media (min-width: 992px) {
-        // Hamburger hidden by default on large screens.
-        // (Will be shown per doc.)
-        margin: $hamburgerHiddenMargin;
+        &.hide-xl {
+            // Hamburger hidden by default on large screens.
+            // (Will be shown per doc.)
+            margin: $hamburgerHiddenMargin;
+        }
     }
 
     @media (max-width: 480px) {
@@ -530,11 +541,11 @@ mat-toolbar.mat-toolbar {
     }
 
     &:hover {
-        color: $offwhite;
+        // color: $offwhite;
     }
 
     & .mat-icon {
-        color: $white;
+        // color: $white;
         position: inherit;
     }
 }
@@ -573,107 +584,6 @@ mat-toolbar.mat-toolbar {
     }
 }
 
-// TOP MENU
-cx-mat-menu-top {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 80%;
-
-    ul {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        list-style-position: inside;
-        padding: 0px;
-        margin: 0px;
-
-        li {
-            padding-bottom: 2px;
-            list-style-type: none;
-            cursor: pointer;
-
-            &:focus {
-                outline: none;
-            }
-
-            a.nav-link {
-                margin: 0 4px;
-                padding: 0px;
-                cursor: pointer;
-
-                .nav-link-inner {
-                    border-radius: 4px;
-                    padding: 8px 16px;
-
-                    &:hover {
-                        background: rgba($white, 0.15);
-                    }
-                }
-
-                &:focus {
-                    outline: none;
-
-                    .nav-link-inner {
-                        background: rgba($white, 0.15);
-                        border-radius: 1px;
-                        box-shadow: 0 0 1px 2px $focus-outline-ondark;
-                    }
-                }
-
-                &:active {
-                    .nav-link-inner {
-                        background: rgba($white, 0.15);
-                    }
-                }
-            }
-
-            &.selected {
-                a.nav-link {
-                    .nav-link-inner {
-                        background: rgba($white, 0.15);
-                    }
-                }
-            }
-        }
-    }
-}
-
-// EXTERNAL LINK ICONS
-.app-toolbar {
-    .toolbar-external-icons-container {
-        display: flex;
-        flex-direction: row;
-        height: 100%;
-
-        a {
-            display: flex;
-            align-items: center;
-            padding: 24px;
-            margin: 0 -16px;
-
-            &:focus {
-                // `outline-offset` is not applied on Chrome on Windows, if `outline-style` is `auto.
-                outline: 1px solid $focus-outline-ondark;
-                outline-offset: -16px;
-            }
-
-            @media screen and (max-width: 480px) {
-                margin: 0 0 0 8px;
-                padding: 0;
-            }
-
-            &:hover {
-                opacity: 0.8;
-            }
-
-            img {
-                height: 24px;
-            }
-        }
-    }
-}
-
 
 /**************************************************
             SCROLLBARS FOR CONTENT
@@ -699,6 +609,19 @@ mat-sidenav.sidenav::-webkit-scrollbar-thumb,
     outline: 1px solid $darkgray;
 }
 
+
+
+/********************************************
+            PROGRESS BAR
+********************************************/
+.progress-bar-container {
+    height: 2px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 11;
+}
 
 /*********************************************
             PRINT MEDIA

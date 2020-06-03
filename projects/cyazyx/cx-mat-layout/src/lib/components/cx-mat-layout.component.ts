@@ -13,13 +13,41 @@ export class CxMatLayoutComponent implements OnInit {
   @Input()
   navigationItems: NavigationItem[];
   /**
+   * The background color. Defaults to `bg-white`.
+   * You could customize this in your own theme by having a class with only a
+   * background color to be used for setting background of the sidenav.
+   */
+  @Input()
+  sidenavBgColorClass = 'bg-white';
+  /**
+   * The color attribute for the top navigation toolbar. Defaults to `primary`.
+   */
+  @Input()
+  topnavColor = 'primary';
+  /**
+   * The position of the top nav
+   */
+  @Input()
+  topnavPosition: 'fixed' | 'relative' = 'fixed';
+  /**
+   * Whether we are currently loading to display top loader.
+   */
+  @Input()
+  isLoading = false;
+  /**
+   * Whether we are currently loading to display top loader.
+   * The top nav has been configured with toggle button fort the sidenav.
+   */
+  @Input()
+  showTopNav = true;
+  /**
    * Whether to display the menu and content side-by-side or as an overlay
    */
   isSideBySide = true;
   /**
    * The minimum width to support side-by-side sidenav and content
    */
-  private sideBySideWidth = 992;
+  private sideBySideWidth = 892;
   /**
    * Binding to the class
    */
@@ -42,19 +70,12 @@ export class CxMatLayoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    setTimeout(() => this.onResize(window.innerWidth), 200);
   }
 
   @HostListener('window:resize', ['$event.target.innerWidth'])
   onResize(width: number) {
     this.isSideBySide = width >= this.sideBySideWidth;
-
-    if (this.isSideBySide) {
-      this.sidenav.toggle(false);
-    }
-  }
-
-  updateSideNav() {
-    // May be open or closed when wide; always closed when narrow.
     this.sidenav.toggle(this.isSideBySide && this.sidenav.opened);
   }
 
@@ -64,13 +85,5 @@ export class CxMatLayoutComponent implements OnInit {
     this.hostClasses = [
       sideNavOpen,
     ].join(' ');
-  }
-
-  updateShell() {
-    // Update the SideNav state (if necessary).
-    this.updateSideNav();
-
-    // Update the associated classes
-    this.updateHostClasses();
   }
 }

@@ -3,7 +3,7 @@
         class="vertical-menu-item {{navigationItem.classes}}">
         <div>
             <mat-icon class="menu-icon" *ngIf="navigationItem.matIcon">{{navigationItem.matIcon}}</mat-icon>
-            <span>{{navigationItem.title}}</span>
+            <span class="menu-title">{{navigationItem.title}}</span>
         </div>
     </a>
 </div>
@@ -14,7 +14,7 @@
         class="vertical-menu-item heading {{navigationItem.classes}}">
         <div>
             <mat-icon class="menu-icon" *ngIf="navigationItem.matIcon">{{navigationItem.matIcon}}</mat-icon>
-            <span>{{navigationItem.title}}</span>
+            <span class="menu-title">{{navigationItem.title}}</span>
         </div>
         <mat-icon class="rotating-icon">keyboard_arrow_right</mat-icon>
     </a>
@@ -24,7 +24,7 @@
         [attr.aria-pressed]="isExpanded">
         <div>
             <mat-icon class="menu-icon" *ngIf="navigationItem.matIcon">{{navigationItem.matIcon}}</mat-icon>
-            <span>{{navigationItem.title}}</span>
+            <span class="menu-title">{{navigationItem.title}}</span>
         </div>
         <mat-icon class="rotating-icon">keyboard_arrow_right</mat-icon>
     </button>

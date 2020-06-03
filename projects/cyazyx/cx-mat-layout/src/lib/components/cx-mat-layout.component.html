@@ -1,7 +1,26 @@
+<!-- User can put back to top link above everything -->
+
+<!-- Progress bar at the top -->
+<div *ngIf="isLoading" class="progress-bar-container">
+    <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+</div>
+
+<!-- Whether to display the navbar -->
+<mat-toolbar *ngIf="showTopNav" color="{{topnavColor}}" class="no-print {{topnavPosition}}">
+    <mat-toolbar-row>
+        <button mat-button class="hamburger" [class.starting]="isLoading" (click)="sidenav.toggle()" title="Side Menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <!-- Menu Items loaded here -->
+        <ng-content select="cx-mat-menu-top"></ng-content>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- Sidenav Container & Content -->
 <mat-sidenav-container class="sidenav-container" role="main">
 
-    <mat-sidenav [ngClass]="{'collapsed': !isSideBySide}" #sidenav class="sidenav" [mode]="mode" [opened]="isOpened"
-        (openedChange)="updateHostClasses()">
+    <mat-sidenav [ngClass]="{'collapsed': !isSideBySide}" #sidenav class="sidenav {{sidenavBgColorClass}}" [mode]="mode"
+        [opened]="isOpened" (openedChange)="updateHostClasses()" color="primary">
         <!-- Main menu -->
         <cx-mat-menu [navigationItems]="navigationItems" [fullWidth]="isSideBySide"></cx-mat-menu>
         <!-- Other footer components to be displayed below menus-->
