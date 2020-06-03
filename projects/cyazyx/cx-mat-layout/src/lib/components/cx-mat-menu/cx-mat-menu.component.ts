@@ -3,7 +3,11 @@ import { NavigationItem } from '../../models';
 
 @Component({
   selector: 'cx-mat-menu',
-  templateUrl: './cx-mat-menu.component.html'
+  template: `
+  <cx-mat-menu-item *ngFor="let navigationItem of filteredNavigationItems;" [navigationItem]="navigationItem"
+    [selectedItems]="selectedItems" [fullWidth]="fullWidth">
+  </cx-mat-menu-item>
+  `
 })
 export class CxMatMenuComponent implements OnInit, OnChanges {
   /**
@@ -32,5 +36,5 @@ export class CxMatMenuComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.filteredNavigationItems = this.navigationItems ? this.navigationItems.filter(menu => !menu.hidden) : [];
-   }
+  }
 }

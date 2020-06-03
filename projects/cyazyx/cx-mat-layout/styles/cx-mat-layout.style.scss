@@ -60,34 +60,8 @@ Arial,
 sans-serif;
 
 // COLOR PALETTE
-$blue: #1976D2;
-$accentblue: #1E88E5;
-$brightred: #DD0031;
-$darkred: #C3002F;
-$white: #FFFFFF;
-$offwhite: #FAFAFA;
-$lightgray: #DBDBDB;
 $mediumgray: #6E6E6E;
 $darkgray: #444444;
-$black: #0A1014;
-$darkorange: #940;
-
-// API & CODE COLORS
-$amber-700: #FFA000;
-$blue-400: #42A5F5;
-$blue-500: #2196F3;
-$blue-800: #1565C0;
-$blue-900: #0D47A1;
-$blue-grey-600: #546E7A;
-$green-500: #4CAF50;
-$light-green-600: #7CB342;
-$pink-600: #D81B60;
-$purple-600: #8E24AA;
-$teal-500: #009688;
-
-// STATE COLORS
-$focus-outline-ondark: rgba($white, 0.8);
-$focus-outline-onlight: $accentblue;
 
 // TOP MENU
 $hamburgerShownMargin: 0 8px 0 0;
@@ -160,17 +134,14 @@ $hamburgerHiddenMargin: 0 16px 0 -64px;
 // REM Font Adjustments
 @mixin font-size($sizeValue) {
     font-size: ($sizeValue) + px;
-    // font-size: ($sizeValue / 10) + rem;
 }
 
 @mixin letter-spacing($spacingValue) {
     letter-spacing: ($spacingValue) + px;
-    // letter-spacing: ($spacingValue / 10) + rem;
 }
 
 @mixin line-height($heightValue) {
     line-height: ($heightValue) + px;
-    // line-height: ($heightValue / 10) + rem;
 }
 
 // PLACEHOLDER
@@ -214,10 +185,9 @@ $hamburgerHiddenMargin: 0 16px 0 -64px;
                 SIDENAV TYPOGRAPHY
 *******************************************/
 .sidenav-content a {
-    // color: $blue;
+    color: inherit;
 
     &:hover {
-        // color: $mediumgray;
         background-color: rgba(0, 0, 0, 0.308);
     }
 }
@@ -287,7 +257,6 @@ mat-sidenav.mat-sidenav.sidenav {
     left: 0;
     padding: 0;
     min-width: 260px;
-    box-shadow: 6px 0 6px rgba(0, 0, 0, 0.10);
 
     &.collapsed {
         top: 56px;
@@ -300,16 +269,7 @@ mat-sidenav-container.sidenav-container {
     max-width: 100%;
     margin: 0;
     transform: none;
-
-    &.has-floating-toc {
-        max-width: 82%;
-    }
 }
-
-// mat-sidenav-container.sidenav-container.mat-drawer-container.mat-sidenav-container,
-// mat-sidenav-container .sidenav-content {
-//     background-color: $white;
-// }
 
 mat-sidenav-container div.mat-sidenav-content {
     height: auto;
@@ -317,7 +277,7 @@ mat-sidenav-container div.mat-sidenav-content {
 
 .vertical-menu-item {
     box-sizing: border-box;
-    // color: $darkgray;
+    color: inherit;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -330,19 +290,16 @@ mat-sidenav-container div.mat-sidenav-content {
     word-wrap: break-word;
 
     &:hover {
-        // background-color: $lightgray;
-        // color: $blue;
-        // text-shadow: 0 0 5px #ffffff;
         background-color: rgba(0, 0, 0, 0.308);
     }
     
     &:focus {
-        outline: $focus-outline-onlight auto 2px;
+        outline: rgba(0, 0, 0, 0.308) auto 2px;
     }
     
     &.selected {
         background-color: rgba(0, 0, 0, 0.308);
-        // color: $blue;
+        color: inherit;
     }
 
     &.level-2 {
@@ -360,6 +317,8 @@ mat-sidenav-container div.mat-sidenav-content {
     }
 
     >div {
+        display: flex;
+
         .mat-icon {
             height: 18px;
             width: 18px;
@@ -379,7 +338,7 @@ button.vertical-menu-item {
 }
 
 .heading {
-    // color: $darkgray;
+    color: inherit;
     cursor: pointer;
     position: relative;
     text-transform: uppercase;
@@ -438,7 +397,7 @@ button.vertical-menu-item {
 }
 
 .level-2 {
-    // color: $mediumgray;
+    color: inherit;
     font-family: $main-font;
     @include font-size(14);
     font-weight: 400;
@@ -458,20 +417,68 @@ button.vertical-menu-item {
 }
 
 .level-3 {
-    // color: $mediumgray;
+    color: inherit;
     font-family: $main-font;
     @include font-size(14);
     margin: 0;
     padding-left: 40px;
     text-transform: none;
+
+    &.expanded .mat-icon.rotating-icon,
+    .level-4.expanded .mat-icon.rotating-icon {
+        @include rotate(90deg);
+    }
+
+    &:not(.expanded) .mat-icon.rotating-icon,
+    .level-4:not(.expanded) .mat-icon.rotating-icon {
+        @include rotate(0deg);
+    }
 }
 
 .level-4 {
-    // color: $mediumgray;
+    color: inherit;
     font-family: $main-font;
     @include font-size(14);
     margin: 0;
     padding-left: 48px;
+    text-transform: none;
+
+    &.expanded .mat-icon.rotating-icon,
+    .level-5.expanded .mat-icon.rotating-icon {
+        @include rotate(90deg);
+    }
+
+    &:not(.expanded) .mat-icon.rotating-icon,
+    .level-5:not(.expanded) .mat-icon.rotating-icon {
+        @include rotate(0deg);
+    }
+}
+
+.level-5 {
+    color: inherit;
+    font-family: $main-font;
+    @include font-size(14);
+    margin: 0;
+    padding-left: 56px;
+    text-transform: none;
+
+    &.expanded .mat-icon.rotating-icon,
+    .level-6.expanded .mat-icon.rotating-icon {
+        @include rotate(90deg);
+    }
+
+    &:not(.expanded) .mat-icon.rotating-icon,
+    .level-6:not(.expanded) .mat-icon.rotating-icon {
+        @include rotate(0deg);
+    }
+}
+
+.level-6 {
+    color: inherit;
+    font-family: $main-font;
+    @include font-size(14);
+    margin: 0;
+    padding-left: 64px;
     text-transform: none;
 }
 
@@ -492,16 +499,11 @@ cx-mat-menu-menu.top-menu {
             TOPNAV TOOLBAR
 ************************************************/
 mat-toolbar.mat-toolbar {
-
     z-index: 10;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
 
     mat-toolbar-row {
         padding: 0 16px 0 0;
-    }
-
-    mat-icon {
-        // color: $white;
     }
 
     &.fixed {
@@ -540,47 +542,8 @@ mat-toolbar.mat-toolbar {
         transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
-    &:hover {
-        // color: $offwhite;
-    }
-
     & .mat-icon {
-        // color: $white;
         position: inherit;
-    }
-}
-
-// HOME NAV-LINK
-.nav-link.home {
-    cursor: pointer;
-    margin: 0 16px 0 0;
-    padding: 8px 0;
-
-    &:focus {
-        // `outline-offset` is not applied on Chrome on Windows, if `outline-style` is `auto.
-        outline: 1px solid $focus-outline-ondark;
-        outline-offset: 4px;
-    }
-
-    @media screen and (max-width: 991px) {
-        padding: 4px 0;
-    }
-
-    @media screen and (max-width: 480px) {
-        margin-right: 8px;
-    }
-
-    img {
-        position: relative;
-        margin-top: -21px;
-        top: 12px;
-        height: 40px;
-
-        @media (max-width: 991px) {
-            &:hover {
-                transform: scale(1.1);
-            }
-        }
     }
 }
 
