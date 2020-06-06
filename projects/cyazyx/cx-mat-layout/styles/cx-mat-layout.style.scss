@@ -62,6 +62,8 @@ sans-serif;
 // COLOR PALETTE
 $mediumgray: #6E6E6E;
 $darkgray: #444444;
+$selectionOverlay: rgba(0, 0, 0, 0.308);
+$selectionHeadingOverlay: rgba(0, 0, 0, 0.1);
 
 // TOP MENU
 $hamburgerShownMargin: 0 8px 0 0;
@@ -188,7 +190,7 @@ $hamburgerHiddenMargin: 0 16px 0 -64px;
     color: inherit;
 
     &:hover {
-        background-color: rgba(0, 0, 0, 0.308);
+        background-color: $selectionOverlay;
     }
 }
 
@@ -290,16 +292,23 @@ mat-sidenav-container div.mat-sidenav-content {
     word-wrap: break-word;
 
     &:hover {
-        background-color: rgba(0, 0, 0, 0.308);
+        background-color: $selectionOverlay;
     }
-    
+
     &:focus {
-        outline: rgba(0, 0, 0, 0.308) auto 2px;
+        outline: ($selectionOverlay) auto 2px;
     }
-    
+
     &.selected {
-        background-color: rgba(0, 0, 0, 0.308);
-        color: inherit;
+        &:not(.heading) {
+            background-color: $selectionOverlay;
+            color: inherit;
+        }
+
+        &.heading {
+            background-color: $selectionHeadingOverlay;
+            color: inherit;
+        }
     }
 
     &.level-2 {
@@ -353,6 +362,11 @@ button.vertical-menu-item {
         transition: visibility 500ms, opacity 500ms, max-height 500ms;
         -webkit-transition-timing-function: ease-in-out;
         transition-timing-function: ease-in-out;
+
+        &.selected {
+            background-color: $selectionHeadingOverlay;
+            color: inherit;
+        }
     }
 
     &.collapsed {
@@ -479,6 +493,82 @@ button.vertical-menu-item {
     @include font-size(14);
     margin: 0;
     padding-left: 64px;
+    text-transform: none;
+
+    &.expanded .mat-icon.rotating-icon,
+    .level-7.expanded .mat-icon.rotating-icon {
+        @include rotate(90deg);
+    }
+
+    &:not(.expanded) .mat-icon.rotating-icon,
+    .level-7:not(.expanded) .mat-icon.rotating-icon {
+        @include rotate(0deg);
+    }
+}
+
+.level-7 {
+    color: inherit;
+    font-family: $main-font;
+    @include font-size(14);
+    margin: 0;
+    padding-left: 72px;
+    text-transform: none;
+
+    &.expanded .mat-icon.rotating-icon,
+    .level-8.expanded .mat-icon.rotating-icon {
+        @include rotate(90deg);
+    }
+
+    &:not(.expanded) .mat-icon.rotating-icon,
+    .level-8:not(.expanded) .mat-icon.rotating-icon {
+        @include rotate(0deg);
+    }
+}
+
+.level-8 {
+    color: inherit;
+    font-family: $main-font;
+    @include font-size(14);
+    margin: 0;
+    padding-left: 80px;
+    text-transform: none;
+
+    &.expanded .mat-icon.rotating-icon,
+    .level-9.expanded .mat-icon.rotating-icon {
+        @include rotate(90deg);
+    }
+
+    &:not(.expanded) .mat-icon.rotating-icon,
+    .level-9:not(.expanded) .mat-icon.rotating-icon {
+        @include rotate(0deg);
+    }
+}
+
+.level-9 {
+    color: inherit;
+    font-family: $main-font;
+    @include font-size(14);
+    margin: 0;
+    padding-left: 88px;
+    text-transform: none;
+
+    &.expanded .mat-icon.rotating-icon,
+    .level-10.expanded .mat-icon.rotating-icon {
+        @include rotate(90deg);
+    }
+
+    &:not(.expanded) .mat-icon.rotating-icon,
+    .level-10:not(.expanded) .mat-icon.rotating-icon {
+        @include rotate(0deg);
+    }
+}
+
+.level-10 {
+    color: inherit;
+    font-family: $main-font;
+    @include font-size(14);
+    margin: 0;
+    padding-left: 96px;
     text-transform: none;
 }
 

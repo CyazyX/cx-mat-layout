@@ -1,5 +1,5 @@
 <div *ngIf="!navigationItem?.children">
-    <a href="{{navigationItem.url}}" [ngClass]="classes" title="{{navigationItem.tooltip}}"
+    <a [routerLink]="navigationItem.url" [ngClass]="classes" title="{{navigationItem.tooltip}}"
         class="vertical-menu-item {{navigationItem.classes}}">
         <div>
             <mat-icon class="menu-icon" *ngIf="navigationItem.matIcon">{{navigationItem.matIcon}}</mat-icon>
@@ -10,7 +10,7 @@
 
 <div *ngIf="navigationItem?.children">
     <a *ngIf="navigationItem.url != null" href="{{navigationItem.url}}" [ngClass]="classes"
-        title="{{navigationItem.tooltip}}" (click)="menuHeaderClicked()"
+        title="{{navigationItem.tooltip}}" (click)="menuHeaderClicked($event)"
         class="vertical-menu-item heading {{navigationItem.classes}}">
         <div>
             <mat-icon class="menu-icon" *ngIf="navigationItem.matIcon">{{navigationItem.matIcon}}</mat-icon>
@@ -20,7 +20,7 @@
     </a>
 
     <button *ngIf="navigationItem.url == null" type="button" [ngClass]="classes" title="{{navigationItem.tooltip}}"
-        (click)="menuHeaderClicked()" class="vertical-menu-item heading {{navigationItem.classes}}"
+        (click)="menuHeaderClicked($event)" class="vertical-menu-item heading {{navigationItem.classes}}"
         [attr.aria-pressed]="isExpanded">
         <div>
             <mat-icon class="menu-icon" *ngIf="navigationItem.matIcon">{{navigationItem.matIcon}}</mat-icon>
@@ -30,8 +30,9 @@
     </button>
 
     <div class="menu-children" [ngClass]="classes">
-        <cx-mat-menu-item *ngFor="let node of navigationItemChildren" [level]="level + 1" [fullWidth]="fullWidth"
-            [isParentExpanded]="isExpanded" [navigationItem]="node" [selectedItems]="selectedItems">
+        <cx-mat-menu-item *ngFor="let navigationItemChild of navigationItemChildren" [level]="level + 1"
+            [fullWidth]="fullWidth" [isParentExpanded]="isExpanded" [navigationItem]="navigationItemChild"
+            [selectedItems]="selectedItems">
         </cx-mat-menu-item>
     </div>
 </div>

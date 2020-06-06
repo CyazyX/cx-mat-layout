@@ -8,7 +8,8 @@ const routes: Routes = [
   {
     path: '', component: DashboardComponent, children: [
       { path: '', redirectTo: 'console', pathMatch: 'full' },
-      { path: 'console', component: ConsoleComponent }
+      { path: 'console', component: ConsoleComponent },
+      { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) }
     ]
   }
 ];

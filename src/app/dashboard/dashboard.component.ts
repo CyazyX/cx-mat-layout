@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.menus = [
-      { id: 'abcs', title: 'Home' },
+      { title: 'Home', url: '/dashboard/console' },
       {
         id: 'cs', title: 'Services', children: [
           { id: 'cs.a', title: 'Buying' },
@@ -24,12 +24,12 @@ export class DashboardComponent implements OnInit {
       {
         id: 'ess', title: 'Settings', matIcon: 'bookmark', children: [
           {
-            id: 'ess.1', title: 'Branch', children: [
-              { id: 'ess.1.1', title: 'Locations' },
+            id: 'ess.1', title: 'Branches', children: [
+              { id: 'ess.1.1', title: 'Locations', url: '/dashboard/settings/branches/locations' },
               { id: 'ess.1.2', title: 'Regions' }
             ]
           },
-          { id: 'ess.2', title: 'Comparisons' }
+          { id: 'ess.2', title: 'Comparisons', url: '/dashboard/settings/comparisons' }
         ]
       },
     ];

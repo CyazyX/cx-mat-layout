@@ -5,7 +5,7 @@ import { NavigationItem } from '../../models';
   selector: 'cx-mat-menu-item',
   templateUrl: './cx-mat-menu-item.component.html'
 })
-export class CxMatMenuItemComponent implements OnInit, OnChanges {
+export class CxMatMenuItemComponent implements OnChanges {
   /**
    * The navigation item we are rendering.
    */
@@ -30,7 +30,7 @@ export class CxMatMenuItemComponent implements OnInit, OnChanges {
    * Whether the parent node is expanded or not.
    */
   @Input()
-  isParentExpanded = true;
+  isParentExpanded = false;
 
   isExpanded = false;
   isSelected = false;
@@ -38,14 +38,10 @@ export class CxMatMenuItemComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
   ngOnChanges(): void {
     if (this.selectedItems) {
       this.isSelected = this.selectedItems.indexOf(this.navigationItem) !== -1; // this node is the selected node or its ancestor
-      this.isExpanded = this.isParentExpanded &&
-        (this.isSelected || (this.fullWidth && this.isExpanded));
+      this.isExpanded = this.navigationItem.children && this.isSelected || (this.fullWidth && this.isExpanded);
     } else {
       this.isSelected = false;
     }
@@ -74,9 +70,13 @@ export class CxMatMenuItemComponent implements OnInit, OnChanges {
 
   /**
    * When we click the navigation item.
+   * @param $event The event that initiated this call.
    */
-  menuHeaderClicked() {
+  menuHeaderClicked($event: MouseEvent) {
     this.isExpanded = !this.isExpanded;
     this.setClasses();
+    // For navigation items that have children and still set `url`, prevent
+    // navigating to the url.
+    $event.preventDefault();
   }
 }

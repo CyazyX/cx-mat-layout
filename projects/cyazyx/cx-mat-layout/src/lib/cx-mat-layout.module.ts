@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 // Material Modules
 import { MatBadgeModule } from '@angular/material/badge';
@@ -29,6 +30,7 @@ import { CxMatMenuTopComponent } from './components/cx-mat-menu-top/cx-mat-menu-
   ],
   imports: [
     CommonModule,
+    RouterModule,
     // Material modules
     MatBadgeModule,
     MatButtonModule,
