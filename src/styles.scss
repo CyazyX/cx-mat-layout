@@ -1,5 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@cyazyx/cx-mat-layout/styles/cx-mat-layout.style.scss';
 
+// Theme
+@import './themes/themes.scss';
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+cx-mat-menu-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+
+    div.menu-part {
+        display: flex;
+
+        button,
+        .mat-button,
+        .mat-button-base {
+            margin: 0 4px;
+        }
+    }
+}

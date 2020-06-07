@@ -62,7 +62,7 @@ sans-serif;
 // COLOR PALETTE
 $mediumgray: #6E6E6E;
 $darkgray: #444444;
-$selectionOverlay: rgba(0, 0, 0, 0.308);
+$selectionOverlay: rgba(0, 0, 0, 0.4);
 $selectionHeadingOverlay: rgba(0, 0, 0, 0.1);
 
 // TOP MENU
@@ -285,7 +285,7 @@ mat-sidenav-container div.mat-sidenav-content {
     align-items: center;
     justify-content: space-between;
     overflow-wrap: break-word;
-    padding: 8px;
+    padding: 10px 8px;
     text-decoration: none;
     text-align: left;
     width: 100%;
@@ -296,7 +296,7 @@ mat-sidenav-container div.mat-sidenav-content {
     }
 
     &:focus {
-        outline: ($selectionOverlay) auto 2px;
+        outline: ($selectionOverlay) auto 1px;
     }
 
     &.selected {
@@ -312,8 +312,8 @@ mat-sidenav-container div.mat-sidenav-content {
     }
 
     &.level-2 {
-        padding-top: 4px;
-        padding-bottom: 4px;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
 
     span {
@@ -340,8 +340,8 @@ mat-sidenav-container div.mat-sidenav-content {
 button.vertical-menu-item {
     border: none;
     background-color: transparent;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     margin: 0;
     width: 100%;
 }

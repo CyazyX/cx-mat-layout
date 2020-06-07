@@ -25,6 +25,11 @@ export class CxMatLayoutComponent implements OnInit {
   @Input()
   topnavColor = 'primary';
   /**
+   * The title to display on the toggle of the sidebar.
+   */
+  @Input()
+  sidenavToggleTitle = 'Side Menu';
+  /**
    * The position of the top nav
    */
   @Input()

@@ -1,7 +1,18 @@
 <cx-mat-layout [navigationItems]="menus">
     <cx-mat-menu-top>
-        <button>Home</button>
-        <button>About Us</button>
+        <div class="menu-part">
+            <a mat-flat-button color="accent" [routerLink]="'/'">
+                <mat-icon>home</mat-icon>
+                Homepage
+            </a>
+            <button mat-flat-button color="accent">About Us</button>
+            <button mat-flat-button color="accent">Contact Us</button>
+        </div>
+        <div class="menu-part">
+            <button mat-icon-button>
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        </div>
     </cx-mat-menu-top>
     <router-outlet></router-outlet>
 </cx-mat-layout>

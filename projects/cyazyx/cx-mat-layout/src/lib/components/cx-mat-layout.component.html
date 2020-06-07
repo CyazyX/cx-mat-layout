@@ -8,7 +8,7 @@
 <!-- Whether to display the navbar -->
 <mat-toolbar *ngIf="showTopNav" color="{{topnavColor}}" class="no-print {{topnavPosition}}">
     <mat-toolbar-row>
-        <button mat-button class="hamburger" [class.starting]="isLoading" (click)="sidenav.toggle()" title="Side Menu">
+        <button mat-button class="hamburger" [class.starting]="isLoading" (click)="sidenav.toggle()" title="{{sidenavToggleTitle}}">
             <mat-icon>menu</mat-icon>
         </button>
         <!-- Menu Items loaded here -->

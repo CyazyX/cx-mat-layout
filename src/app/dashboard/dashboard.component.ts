@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
           { id: 'cs.b', title: 'Selling' },
         ]
       },
-      { id: 'dss', title: 'Company', matIcon: 'favorite' },
+      { id: 'dss', title: 'Company', matIcon: 'favorite', url: '/dashboard/company' },
       {
         id: 'ess', title: 'Settings', matIcon: 'bookmark', children: [
           {
