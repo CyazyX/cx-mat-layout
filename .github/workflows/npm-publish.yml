@@ -21,9 +21,10 @@ jobs:
       run: npm install
     - name: Build deployment package
       run: npm run prepare_deploy
+    - name: Change to build directory
+      run: cd dist/cyazyx/cx-mat-layout
     - name: Publish package
-    - run: cd dist/cyazyx/cx-mat-layout
-    - run: npm publish
+      run: npm publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
