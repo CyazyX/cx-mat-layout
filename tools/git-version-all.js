@@ -17,7 +17,7 @@ try {
         // Commit changes after successful staging
         console.info('\x1b[34m%s\x1b[0m', 'Committing staged changes attempt...');
         exec(
-            `echo Waiting for file tree to refresh... && ping 127.0.0.1 -n 10 > nul && git diff --quiet && ping 127.0.0.1 -n 6 > nul && git diff --staged --quiet && ping 127.0.0.1 -n 6 > nul || git commit -m"${version} Release Changes Commit"`,
+            `echo Waiting for file tree to refresh... && ping 127.0.0.1 -n 10 > nul && git diff --quiet && ping 127.0.0.1 -n 6 > nul && git diff --staged --quiet && ping 127.0.0.1 -n 6 > nul || git commit -m"Release ${version} Changes Commit"`,
             (err, stdout, stderr) => {
                 if (err) {
                     // node couldn't execute the command
