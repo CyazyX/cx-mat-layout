@@ -10,7 +10,7 @@
     "gitversion": "node tools/git-version-all.js",
     "npm_pack": "cd dist/cyazyx/cx-mat-layout && npm pack",
     "package": "npm run bump_version && npm run build_lib && npm run npm_pack",
-    "deploy": "npm run bump_version && npm run build_lib && npm run gitversion",
+    "prepare_deploy": "npm run bump_version && npm run build_lib && npm run gitversion",
     "install_local": "node tools/install-local.js",
     "test": "ng test",
     "lint": "ng lint",
