@@ -14,11 +14,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@master
     - name: Set up Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@master
       with:
         node-version: 14.2.0
     - run: npm ci
-    - run: npm run prepare_deploy
+    - run: npm run build_lib
     - run: cd dist/cyazyx/cx-mat-layout
     - run: npm publish
       env:
