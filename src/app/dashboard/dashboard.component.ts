@@ -8,28 +8,28 @@ import { NavigationItem } from '@cyazyx/cx-mat-layout';
 })
 export class DashboardComponent implements OnInit {
   menus: NavigationItem[];
-
+  dateNow = new Date();
   constructor() { }
 
   ngOnInit(): void {
     this.menus = [
       { title: 'Home', url: '/dashboard/console' },
       {
-        id: 'cs', title: 'Services', children: [
-          { id: 'cs.a', title: 'Buying' },
-          { id: 'cs.b', title: 'Selling' },
+        title: 'Services', children: [
+          { title: 'Buying' },
+          { title: 'Selling' },
         ]
       },
-      { id: 'dss', title: 'Company', matIcon: 'favorite', url: '/dashboard/company' },
+      { title: 'Company', matIcon: 'favorite', url: '/dashboard/company' },
       {
-        id: 'ess', title: 'Settings', matIcon: 'bookmark', children: [
+        title: 'Settings', matIcon: 'bookmark', children: [
           {
-            id: 'ess.1', title: 'Branches', children: [
-              { id: 'ess.1.1', title: 'Locations', url: '/dashboard/settings/branches/locations' },
-              { id: 'ess.1.2', title: 'Regions' }
+            title: 'Branches', children: [
+              { title: 'Locations', url: '/dashboard/settings/branches/locations' },
+              { title: 'Regions' }
             ]
           },
-          { id: 'ess.2', title: 'Comparisons', url: '/dashboard/settings/comparisons' }
+          { title: 'Comparisons', url: '/dashboard/settings/comparisons' }
         ]
       },
     ];

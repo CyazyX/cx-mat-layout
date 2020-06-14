@@ -47,7 +47,9 @@ export class CxMatMenuComponent implements OnInit, OnChanges {
    * Stripped the leading and trailing slash, if any, conveniently.
    */
   currentUrl = this.urlSubject
-    .pipe(map(url => this.stripSlashes(url)));
+    .pipe(
+      map(url => this.stripSlashes(url))
+    );
 
   /**
    * Only the URL without search and hash.
@@ -65,7 +67,8 @@ export class CxMatMenuComponent implements OnInit, OnChanges {
     this.location.onUrlChange(url => this.urlSubject.next(url));
 
     // Subscribe to changes with the URL.
-    this.currentUrl.subscribe(url => this.buildSelectedItems(url));
+    this.currentUrl
+      .subscribe(url => this.buildSelectedItems(url));
   }
 
   ngOnChanges(): void {

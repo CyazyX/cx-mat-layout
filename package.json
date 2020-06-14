@@ -12,6 +12,7 @@
     "package": "npm run build_lib && npm run npm_pack",
     "prepare_deploy": "npm run bump_version && npm run build_lib && npm run gitversion",
     "install_local": "npm run package && node tools/install-local.js",
+    "publish_public": "cd dist/cyazyx/cx-mat-layout && npm publish --access public",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -28,7 +29,7 @@
     "@angular/platform-browser": "~9.1.9",
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
-    "@cyazyx/cx-mat-layout": "file:dist/cyazyx/cx-mat-layout/cyazyx-cx-mat-layout-0.0.9.tgz",
+    "@cyazyx/cx-mat-layout": "file:dist/cyazyx/cx-mat-layout/cyazyx-cx-mat-layout-0.0.10.tgz",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

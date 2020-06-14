@@ -1,17 +1,27 @@
 <cx-mat-layout [navigationItems]="menus">
     <cx-mat-menu-top>
         <div class="menu-part">
-            <a mat-flat-button color="accent" [routerLink]="'/'">
+            <a mat-button [routerLink]="'/'" [routerLinkActive]="'active'">
                 <mat-icon>home</mat-icon>
-                Homepage
+                <span>Homepage</span>
             </a>
-            <button mat-flat-button color="accent">About Us</button>
-            <button mat-flat-button color="accent">Contact Us</button>
+            <button mat-button>About Us</button>
+            <button mat-button>Contact Us</button>
         </div>
         <div class="menu-part">
-            <button mat-icon-button>
+            <button mat-icon-button [matMenuTriggerFor]="dropdown">
                 <mat-icon>more_vert</mat-icon>
             </button>
+            <mat-menu #dropdown="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>account_circle</mat-icon>
+                    <span>Profile</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon color="warn">exit_to_app</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
         </div>
     </cx-mat-menu-top>
     <router-outlet></router-outlet>

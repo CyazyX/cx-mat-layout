@@ -1,8 +1,10 @@
 {
   "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
   "assets": [
+    "README.md",
     "./styles/*.css",
-    "./styles/*.scss"
+    "./styles/*.scss",
+    "./changelog/*.*"
   ],
   "dest": "../../../dist/cyazyx/cx-mat-layout",
   "lib": {

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 // Material support
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 // Our module for DEMO time
 import { CxMatLayoutModule } from '@cyazyx/cx-mat-layout';
@@ -25,8 +26,10 @@ import { CompanyComponent } from './company/company.component';
     CommonModule,
     DashboardRoutingModule,
     CxMatLayoutModule,
+    // Material Modules
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule
   ]
 })
 export class DashboardModule { }
