@@ -1,6 +1,6 @@
 {
   "name": "@cyazyx/cx-mat-layout",
-  "version": "0.919.2",
+  "version": "0.919.3",
   "description": "Material layout common implementation scenarios and helpers. Easily setup a sidebar and top navigation with ZERO hustle.",
   "author": {
     "email": "mushierc@gmail.com",
@@ -8,7 +8,7 @@
     "url": "https://www.linkedin.com/in/mushierc/"
   },
   "license": "MIT",
-  "repository": "https://gitbub.com/cyazyx/cx-mat-layout.git",
+  "repository": "https://github.com/CyazyX/cx-mat-layout",
   "keywords": [
     "material",
     "layout",
