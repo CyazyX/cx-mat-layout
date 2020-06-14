@@ -1,27 +1,95 @@
-# CxMatLayoutDemo
+# CX Mat Layout
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+This library provides common layout setup for material menus and content setup. This is a collection of menus (top, sidebar), content area and positioning layouts, etc. With this library, you don't need any template or external dependency as it only depends on `@angular/material`.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+You need `@angular` project to start. Once you setup your Angular project, you can then follow the following steps:
 
-## Code scaffolding
+1.  Install cx-mat-layout:
+        
+        npm i -s @cyazyx/cx-mat-layout`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2.  In the module that you plan to use the layout module, import it, for instance, if you are using `AppModule` as your layout `root`;
 
-## Build
+        import { CxMatLayoutModule } from '@cyazyx/cx-mat-layout';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+3.  In your module `imports`, include the `CxMatLayoutModule`;
 
-## Running unit tests
+        imports: [
+            CommonModule,
+            CxMatLayoutModule,
+            // ...Other imports
+        ]
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4.  In your `styles.scss`, import our theming file:
 
-## Running end-to-end tests
+        @import '~@cyazyx/cx-mat-layout/styles/cx-mat-layout.style.scss';
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+    This file is open source and you can customize the styles as you deem fit.
 
-## Further help
+5.  In your `component.ts` file, import:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+        import { NavigationItem } from '@cyazyx/cx-mat-layout';`
+
+    This is used to build navigation menu items. See sample code at [GitHub](https://gitbub.com/cyazyx/cx-mat-layout.git) for example navigation items.
+
+6.  Build your menu items, e.g.
+
+        // Define a property for holding menus items
+        menus: NavigationItem[];
+
+        // Your ngOnInit lifecycle hook to load the paths
+        ngOnInit(): void {
+            this.menus = [
+                { title: 'Home', url: '/dashboard' },
+                {
+                    title: 'Services', children: [
+                        { title: 'Buying' },
+                        { title: 'Selling' },
+                    ]
+                }
+            ];
+        }
+
+7.  Update your layout component to include `cx-mat-layout` definitions;
+
+        <cx-mat-layout [navigationItems]="menus">
+            <!--Top Menu-->
+            <cx-mat-menu-top>
+                <div class="menu-part">
+                    <a mat-button [routerLink]="'/'" [routerLinkActive]="'active'">
+                        <mat-icon>home</mat-icon>
+                        <span>Homepage</span>
+                    </a>
+                    <button mat-button>About Us</button>
+                    <button mat-button>Contact Us</button>
+                </div>
+            </cx-mat-menu-top>
+            <!--Every other content is loaded as router-outlet-->
+            <router-outlet></router-outlet>
+        </cx-mat-layout>
+
+8.  You are all set, you can now focus on building your application, with native material layout instead of focusing on layout issues. 
+
+## Theming
+
+You can theme the layout using the default/ original material theming implementation. The theme implementation has been left to you and by default, everything can be adjusted.
+
+## Contributing
+
+Raise your `issues` and `pull requests` on [GitHub](https://gitbub.com/CyazyX/cx-mat-layout.git)
+
+### What to Contribute
+
+We have different parts you can contribute to. These include:
+
+1.  Package functionality
+2.  Tooling improvements
+3.  Tests and coverage improvements
+4.  Documentation
+5.  Customization
+
+### Ask to Contribute
+
+You can also request repository read access at [mail](mailto:mushierc@gmail.com) with the parts you can contribute to and we shall get back to you with more information.
