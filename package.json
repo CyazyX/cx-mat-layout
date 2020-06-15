@@ -31,7 +31,7 @@
     "@angular/platform-browser": "~9.1.11",
     "@angular/platform-browser-dynamic": "~9.1.11",
     "@angular/router": "~9.1.11",
-    "@cyazyx/cx-mat-layout": "file:dist/cyazyx/cx-mat-layout/cyazyx-cx-mat-layout-0.919.4.tgz",
+    "@cyazyx/cx-mat-layout": "file:dist/cyazyx/cx-mat-layout/cyazyx-cx-mat-layout-0.9111.1.tgz",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

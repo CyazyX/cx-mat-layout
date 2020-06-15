@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
         },
       ];
       this.layoutService.isLoadingContent.next(false);
-    }, 5000);
+    }, 2000);
   }
 
 }
