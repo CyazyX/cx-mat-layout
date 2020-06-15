@@ -70,7 +70,11 @@ You need `@angular` project to start. Once you setup your Angular project, you c
             <router-outlet></router-outlet>
         </cx-mat-layout>
 
-8.  You are all set, you can now focus on building your application, with native material layout instead of focusing on layout issues. 
+8.  You are all set, you can now focus on building your application, with native material layout instead of focusing on layout issues.
+
+## Indepth
+
+More details can be found in the `projects/cyazyx/cx-mat-layout` directory as it contains the source for the package.
 
 ## Theming
 

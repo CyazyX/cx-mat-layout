@@ -18,6 +18,8 @@
     "e2e": "ng e2e"
   },
   "private": false,
+  "license": "MIT",
+  "repository": "https://github.com/CyazyX/cx-mat-layout",
   "dependencies": {
     "@angular/animations": "~9.1.9",
     "@angular/cdk": "^9.2.4",
@@ -29,7 +31,7 @@
     "@angular/platform-browser": "~9.1.9",
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
-    "@cyazyx/cx-mat-layout": "file:dist/cyazyx/cx-mat-layout/cyazyx-cx-mat-layout-0.0.10.tgz",
+    "@cyazyx/cx-mat-layout": "file:dist/cyazyx/cx-mat-layout/cyazyx-cx-mat-layout-0.919.4.tgz",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

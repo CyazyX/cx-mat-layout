@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, HostListener, HostBinding } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationItem } from '../models';
+import { CxMatLayoutService } from '../services';
 
 @Component({
   selector: 'cx-mat-layout',
@@ -13,17 +14,15 @@ export class CxMatLayoutComponent implements OnInit {
   @Input()
   navigationItems: NavigationItem[];
   /**
-   * The background color. Defaults to `bg-white`.
-   * You could customize this in your own theme by having a class with only a
-   * background color to be used for setting background of the sidenav.
-   */
-  @Input()
-  sidenavBgColorClass = 'bg-white';
-  /**
    * The color attribute for the top navigation toolbar. Defaults to `primary`.
    */
   @Input()
   topnavColor = 'primary';
+  /**
+   * The color attribute for the top progress bar. Defaults to `warn`.
+   */
+  @Input()
+  topProgressBarColor = 'warn';
   /**
    * The title to display on the toggle of the sidebar.
    */
@@ -34,11 +33,6 @@ export class CxMatLayoutComponent implements OnInit {
    */
   @Input()
   topnavPosition: 'fixed' | 'relative' = 'fixed';
-  /**
-   * Whether we are currently loading to display top loader.
-   */
-  @Input()
-  isLoading = false;
   /**
    * Whether we are currently loading to display top loader.
    * The top nav has been configured with toggle button fort the sidenav.
@@ -72,7 +66,7 @@ export class CxMatLayoutComponent implements OnInit {
    */
   get mode() { return this.isSideBySide ? 'side' : 'over'; }
 
-  constructor() { }
+  constructor(public layoutService: CxMatLayoutService) { }
 
   ngOnInit(): void {
     setTimeout(() => this.onResize(window.innerWidth), 200);

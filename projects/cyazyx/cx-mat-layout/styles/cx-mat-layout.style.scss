@@ -263,6 +263,15 @@ mat-sidenav.mat-sidenav.sidenav {
     &.collapsed {
         top: 56px;
     }
+
+    .navigation-loader {
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 mat-sidenav-container.sidenav-container {
