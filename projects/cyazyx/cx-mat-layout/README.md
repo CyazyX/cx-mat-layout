@@ -12,75 +12,75 @@ You need `@angular` project to start. Once you setup your Angular project, you c
 
 2.  In the module that you plan to use the layout module, import it, for instance, if you are using `AppModule` as your layout `root`;
 
-```typescript
-    import { CxMatLayoutModule } from '@cyazyx/cx-mat-layout';
-```
+    ```typescript
+        import { CxMatLayoutModule } from '@cyazyx/cx-mat-layout';
+    ```
 
 3.  In your module `imports`, include the `CxMatLayoutModule`;
 
-```typescript
-    imports: [
-        CommonModule,
-        CxMatLayoutModule,
-        // ...Other imports
-    ]
-```
+    ```typescript
+        imports: [
+            CommonModule,
+            CxMatLayoutModule,
+            // ...Other imports
+        ]
+    ```
 
 4.  In your `styles.scss`, import our theming file:
 
-```scss
-    @import '~@cyazyx/cx-mat-layout/styles/cx-mat-layout.style.scss';
-```
+    ```scss
+        @import '~@cyazyx/cx-mat-layout/styles/cx-mat-layout.style.scss';
+    ```
 
->   This file is open source and you can customize the styles as you deem fit.
+    >   This file is open source and you can customize the styles as you deem fit.
 
 5.  In your `component.ts` file, import:
 
-```typescript
-    import { NavigationItem } from '@cyazyx/cx-mat-layout';
-```
+    ```typescript
+        import { NavigationItem } from '@cyazyx/cx-mat-layout';
+    ```
 
->   This is used to build navigation menu items. See sample code at [GitHub](https://gitbub.com/cyazyx/cx-mat-layout.git) for example navigation items.
+    >   This is used to build navigation menu items. See sample code at [GitHub](https://github.com/cyazyx/cx-mat-layout.git) for example navigation items.
 
 6.  Build your menu items, e.g.
 
-```typescript
-    // Define a property for holding menus items
-    menus: NavigationItem[];
+    ```typescript
+        // Define a property for holding menus items
+        menus: NavigationItem[];
 
-    // Your ngOnInit lifecycle hook to load the paths
-    ngOnInit(): void {
-        this.menus = [
-            { title: 'Home', url: '/dashboard' },
-            {
-                title: 'Services', children: [
-                    { title: 'Buying' },
-                    { title: 'Selling' },
-                ]
-            }
-        ];
-    }
-```
+        // Your ngOnInit lifecycle hook to load the paths
+        ngOnInit(): void {
+            this.menus = [
+                { title: 'Home', url: '/dashboard' },
+                {
+                    title: 'Services', children: [
+                        { title: 'Buying' },
+                        { title: 'Selling' },
+                    ]
+                }
+            ];
+        }
+    ```
 
 7.  Update your layout component `HTML` to include `cx-mat-layout` definitions;
 
-```html
-    <cx-mat-layout [navigationItems]="menus">
-        <!--Top Menu-->
-        <cx-mat-menu-top>
-            <div class="menu-part">
-                <a mat-button [routerLink]="'/'" [routerLinkActive]="'active'">
-                    <mat-icon>home</mat-icon>
-                    <span>Homepage</span>
-                </a>
-                <button mat-button>About Us</button>
-                <button mat-button>Contact Us</button>
-            </div>
-        </cx-mat-menu-top>
-        <!--Every other content is loaded as router-outlet-->
-        <router-outlet></router-outlet>
-    </cx-mat-layout>
-```
+    ```html
+        <cx-mat-layout [navigationItems]="menus">
+            <!--Top Menu-->
+            <cx-mat-menu-top>
+                <div class="menu-part">
+                    <a mat-button [routerLink]="'/'" [routerLinkActive]="'active'">
+                        <mat-icon>home</mat-icon>
+                        <span>Homepage</span>
+                    </a>
+                    <button mat-button>About Us</button>
+                    <button mat-button>Contact Us</button>
+                </div>
+            </cx-mat-menu-top>
+            <!--Every other content is loaded as router-outlet-->
+            <router-outlet></router-outlet>
+        </cx-mat-layout>
+    ```
 
 8.  You are all set, you can now focus on building your application, with native material layout instead of focusing on layout issues.
 
@@ -106,7 +106,7 @@ There are a number of components that make up the package;
     1.  *navigationItems* - For the list of navigation items.
     2.  *fullWidth* - Whether we are displaying side by side or whether the menu will be a popover.
 
->   Directly using this requires you to write your own layout logic and styling. You can use the existing source code as a starting point.
+    >   Directly using this requires you to write your own layout logic and styling. You can use the existing source code as a starting point.
     
 3.  **CxMatMenuItemComponent** (selector: `cx-mat-menu-item`) - This is the menu item renderer that recursivey loops through the menu items and renders them. This component supports the following inputs:
 
@@ -131,7 +131,7 @@ You can theme the layout using the default/ original material theming implementa
 
 ## Contributing
 
-Raise your `issues` and `pull requests` on [GitHub](https://gitbub.com/CyazyX/cx-mat-layout.git)
+Raise your `issues` and `pull requests` on [GitHub](https://github.com/CyazyX/cx-mat-layout.git)
 
 ### What to Contribute
 
