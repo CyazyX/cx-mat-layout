@@ -2,6 +2,15 @@
 
 This library provides common layout setup for material menus and content setup. This is a collection of menus (top, sidebar), content area and positioning layouts, etc. With this library, you don't need any template or external dependency as it only depends on `@angular/material`.
 
+## Supported Versions
+
+The following are the versions as supported by different `@angular/core` and `@angular/material` packages;
+
+Package Version  | Angular Core Version
+--------------- | --------------------
+0.919.5  | 9.1.9
+0.9111.1  | 9.1.11
+
 ## Getting Started
 
 You need `@angular` project to start. Once you setup your Angular project, you can then follow the following steps:
