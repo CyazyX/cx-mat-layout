@@ -14,12 +14,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@master
     - name: Set up Node.js
-      uses: actions/setup-node@master
+      uses: actions/setup-node@v1
       with:
         node-version: 14.2.0
+        registry-url: 'https://registry.npmjs.org'
     - run: npm i
     - run: npm run build_lib
     - run: npm run publish_public
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
