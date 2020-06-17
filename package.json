@@ -11,7 +11,7 @@
     "dependency_update": "node tools/version-local-clean.js",
     "npm_pack": "cd dist/cyazyx/cx-mat-layout && npm pack",
     "package": "npm run build_lib && npm run npm_pack",
-    "prepare_deploy": "npm run bump_version && npm run build_lib && npm run dependency_update && npm run gitversion",
+    "prepare_deploy": "npm run dependency_update && npm run bump_version && npm run build_lib && npm run gitversion",
     "install_local": "npm run package && node tools/install-local.js",
     "publish_public": "cd dist/cyazyx/cx-mat-layout && npm publish --access public",
     "test": "ng test",
