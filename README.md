@@ -1,6 +1,7 @@
 # CX Mat Layout
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6da53ba159e2428fa5cfdaa54b4f18c3)](https://app.codacy.com/gh/CyazyX/cx-mat-layout?utm_source=github.com&utm_medium=referral&utm_content=CyazyX/cx-mat-layout&utm_campaign=Badge_Grade_Dashboard)
+![Publish NPM](https://github.com/CyazyX/cx-mat-layout/workflows/Publish%20npm/badge.svg)
 
 This library provides common layout setup for material menus and content setup. This is a collection of menus (top, sidebar), content area and positioning layouts, etc. With this library, you don't need any template or external dependency as it only depends on `@angular/material`.
 
