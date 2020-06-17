@@ -19,6 +19,7 @@ jobs:
         node-version: 14.2.0
         registry-url: 'https://registry.npmjs.org'
     - run: npm i
+    - run: npm run bump_version
     - run: npm run build_lib
     - run: npm run publish_public
       env:
