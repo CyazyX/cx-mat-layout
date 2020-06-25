@@ -14,6 +14,7 @@ Package Version | Angular Core Version
 --------------- | --------------------
 0.919.5 | 9.1.9
 0.9111.1 | 9.1.11
+1.0.0 | 10.0.0
 
 ## Getting Started
 
