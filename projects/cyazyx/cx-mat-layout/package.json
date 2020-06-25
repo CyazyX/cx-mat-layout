@@ -1,6 +1,6 @@
 {
   "name": "@cyazyx/cx-mat-layout",
-  "version": "0.9111.3",
+  "version": "1.0.0",
   "description": "Material layout common implementation scenarios and helpers. Easily setup a sidebar and top navigation with ZERO hustle.",
   "author": {
     "email": "mushierc@gmail.com",
@@ -20,11 +20,11 @@
     "mat-toolbar"
   ],
   "peerDependencies": {
-    "@angular/common": "^9.1.11",
-    "@angular/core": "^9.1.11",
-    "@angular/material": "^9.2.4"
+    "@angular/common": "~10.0.0",
+    "@angular/core": "~10.0.0",
+    "@angular/material": "~10.0.0"
   },
   "dependencies": {
-    "tslib": "^1.10.0"
-  }
+    "tslib": "^2.0.0"
+}
 }
