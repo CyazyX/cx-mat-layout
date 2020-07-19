@@ -21,6 +21,12 @@ export interface NavigationItem {
      */
     url?: string;
     /**
+     * Whether to match the URL of the children. When true, this will be marked
+     * as active when the children's URL is starts with the parent one.
+     * @since 1.0.2
+     */
+    matchChildren?: boolean;
+    /**
      * Tooltip text for the menu, if necessary.
      */
     tooltip?: string;
