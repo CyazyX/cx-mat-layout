@@ -63,12 +63,10 @@ export class CxMatMenuComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.urlSubject.next(this.location.path(true));
-
+    // Listen to changes on the location URL
     this.location.onUrlChange(url => this.urlSubject.next(url));
-
     // Subscribe to changes with the URL.
-    this.currentUrl
-      .subscribe(url => this.buildSelectedItems(url));
+    this.currentUrl.subscribe(url => this.buildSelectedItems(url));
   }
 
   ngOnChanges(): void {
@@ -90,24 +88,33 @@ export class CxMatMenuComponent implements OnInit, OnChanges {
    */
   private buildSelectedItems(url: string) {
     const selectedItemsLocal: NavigationItem[] = [];
-    this.navigationItems.forEach(navItem => this.browseNavigationItems(url, selectedItemsLocal, navItem));
+    this.navigationItems.forEach(navItem => this.browseNavigationItems(url, selectedItemsLocal, navItem, [], navItem.matchChildren));
     if (selectedItemsLocal) {
       this.selectedItems = selectedItemsLocal;
     }
   }
 
   private browseNavigationItems(
-    url: string, currentSelectedItems: NavigationItem[], navigationItem: NavigationItem, parentItems: NavigationItem[] = []) {
+    url: string, currentSelectedItems: NavigationItem[],
+    navigationItem: NavigationItem, parentItems: NavigationItem[] = [],
+    cascadeSelectedChildren = false) {
     const nodeUrl = navigationItem.url;
     const parents = [navigationItem, ...parentItems];
+    const selectChildrenWithParent = cascadeSelectedChildren === true ? true : navigationItem.matchChildren;
     if (nodeUrl) {
       const cleanedNodeUrl = nodeUrl.replace(/^\/+/, '').replace(/\/$/, '');
       if (cleanedNodeUrl === url && currentSelectedItems.indexOf(navigationItem) === -1) {
         parents.forEach(navItem => currentSelectedItems.push(navItem));
       }
+
+      // If we can select children
+      if (selectChildrenWithParent && cleanedNodeUrl.startsWith(url) && currentSelectedItems.indexOf(navigationItem) === -1) {
+        parents.forEach(navItem => currentSelectedItems.push(navItem));
+      }
     }
     if (navigationItem.children) {
-      navigationItem.children.forEach(navItem => this.browseNavigationItems(url, currentSelectedItems, navItem, parents));
+      navigationItem.children
+        .forEach(navItem => this.browseNavigationItems(url, currentSelectedItems, navItem, parents, selectChildrenWithParent));
     }
   }
 }
