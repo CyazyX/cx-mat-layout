@@ -42,8 +42,6 @@ export class CxMatMenuComponent implements OnInit, OnChanges {
 
   private urlSubject = new ReplaySubject<string>(1);
 
-  flattenedMenuItems: NavigationItem[];
-
   /**
    * The full URL of the current navigation including search and hash.
    * Stripped the leading and trailing slash, if any, conveniently.
