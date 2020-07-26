@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
           title: 'Settings', matIcon: 'bookmark', children: [
             {
               title: 'Branches', children: [
-                { title: 'Locations', url: '/dashboard/settings/branches/locations' },
+                { title: 'Locations', url: '/dashboard/settings/branches/locations', matchChildren: true },
                 { title: 'Regions' }
               ]
             },

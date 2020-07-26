@@ -102,19 +102,35 @@ export class CxMatMenuComponent implements OnInit, OnChanges {
     const parents = [navigationItem, ...parentItems];
     const selectChildrenWithParent = cascadeSelectedChildren === true ? true : navigationItem.matchChildren;
     if (nodeUrl) {
-      const cleanedNodeUrl = nodeUrl.replace(/^\/+/, '').replace(/\/$/, '');
-      if (cleanedNodeUrl === url && currentSelectedItems.indexOf(navigationItem) === -1) {
-        parents.forEach(navItem => currentSelectedItems.push(navItem));
+      if (this.cleanUrl(nodeUrl) === url) {
+        parents.forEach(navItem => {
+          if (currentSelectedItems.indexOf(navItem) === -1) { currentSelectedItems.push(navItem); }
+        });
       }
 
       // If we can select children
-      if (selectChildrenWithParent && cleanedNodeUrl.startsWith(url) && currentSelectedItems.indexOf(navigationItem) === -1) {
-        parents.forEach(navItem => currentSelectedItems.push(navItem));
+      if (selectChildrenWithParent) {
+        parents.forEach(navItem => {
+          if (navItem.url && this.cleanUrl(url).startsWith(this.cleanUrl(navItem.url))) {
+            parents.forEach(navInnerItem => {
+              if (currentSelectedItems.indexOf(navInnerItem) === -1) { currentSelectedItems.push(navInnerItem); }
+            });
+          }
+        });
       }
     }
     if (navigationItem.children) {
       navigationItem.children
         .forEach(navItem => this.browseNavigationItems(url, currentSelectedItems, navItem, parents, selectChildrenWithParent));
     }
+  }
+
+  /**
+   * Cleans the URL to remove trailing slashes.
+   * @param url The `URL` to clean
+   */
+  cleanUrl(url: string): string {
+    if (!url) { return ''; }
+    return url.replace(/^\/+/, '').replace(/\/$/, '');
   }
 }
