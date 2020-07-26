@@ -42,6 +42,8 @@ export class CxMatMenuComponent implements OnInit, OnChanges {
 
   private urlSubject = new ReplaySubject<string>(1);
 
+  flattenedMenuItems: NavigationItem[];
+
   /**
    * The full URL of the current navigation including search and hash.
    * Stripped the leading and trailing slash, if any, conveniently.
@@ -71,6 +73,7 @@ export class CxMatMenuComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.filteredNavigationItems = this.navigationItems ? this.navigationItems.filter(menu => !menu.hidden) : [];
+    this.flattenedMenuItems = this.flattenUrlMenuItems(this.filteredNavigationItems, []);
   }
 
   /**
@@ -102,19 +105,50 @@ export class CxMatMenuComponent implements OnInit, OnChanges {
     const parents = [navigationItem, ...parentItems];
     const selectChildrenWithParent = cascadeSelectedChildren === true ? true : navigationItem.matchChildren;
     if (nodeUrl) {
-      const cleanedNodeUrl = nodeUrl.replace(/^\/+/, '').replace(/\/$/, '');
-      if (cleanedNodeUrl === url && currentSelectedItems.indexOf(navigationItem) === -1) {
-        parents.forEach(navItem => currentSelectedItems.push(navItem));
+      if (this.cleanUrl(nodeUrl) === url) {
+        parents.forEach(navItem => {
+          if (currentSelectedItems.indexOf(navItem) === -1) { currentSelectedItems.push(navItem); }
+        });
       }
 
       // If we can select children
-      if (selectChildrenWithParent && cleanedNodeUrl.startsWith(url) && currentSelectedItems.indexOf(navigationItem) === -1) {
-        parents.forEach(navItem => currentSelectedItems.push(navItem));
+      if (selectChildrenWithParent) {
+        parents.forEach(navItem => {
+          if (navItem.url && this.cleanUrl(url).startsWith(this.cleanUrl(navItem.url))) {
+            parents.forEach(navInnerItem => {
+              if (currentSelectedItems.indexOf(navInnerItem) === -1) { currentSelectedItems.push(navInnerItem); }
+            });
+          }
+        });
       }
     }
     if (navigationItem.children) {
       navigationItem.children
         .forEach(navItem => this.browseNavigationItems(url, currentSelectedItems, navItem, parents, selectChildrenWithParent));
     }
+  }
+
+  /**
+   * Filter the current menu items flattened with URLs
+   * @param menuItems The menu items we are filtering from.
+   * @param currentItems The list to query from.
+   */
+  private flattenUrlMenuItems(menuItems: NavigationItem[], currentItems: NavigationItem[] = null) {
+    if (!currentItems) { currentItems = []; }
+    menuItems.forEach(menuItem => {
+      if (menuItem.url) { currentItems.push(menuItem); }
+
+      if (menuItem.children) { this.flattenUrlMenuItems(menuItem.children, currentItems); }
+    });
+    return currentItems;
+  }
+
+  /**
+   * Cleans the URL to remove trailing slashes.
+   * @param url The `URL` to clean
+   */
+  cleanUrl(url: string): string {
+    if (!url) { return ''; }
+    return url.replace(/^\/+/, '').replace(/\/$/, '');
   }
 }
