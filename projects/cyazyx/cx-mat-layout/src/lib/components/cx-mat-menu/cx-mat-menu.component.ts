@@ -73,7 +73,6 @@ export class CxMatMenuComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.filteredNavigationItems = this.navigationItems ? this.navigationItems.filter(menu => !menu.hidden) : [];
-    this.flattenedMenuItems = this.flattenUrlMenuItems(this.filteredNavigationItems, []);
   }
 
   /**
@@ -126,21 +125,6 @@ export class CxMatMenuComponent implements OnInit, OnChanges {
       navigationItem.children
         .forEach(navItem => this.browseNavigationItems(url, currentSelectedItems, navItem, parents, selectChildrenWithParent));
     }
-  }
-
-  /**
-   * Filter the current menu items flattened with URLs
-   * @param menuItems The menu items we are filtering from.
-   * @param currentItems The list to query from.
-   */
-  private flattenUrlMenuItems(menuItems: NavigationItem[], currentItems: NavigationItem[] = null) {
-    if (!currentItems) { currentItems = []; }
-    menuItems.forEach(menuItem => {
-      if (menuItem.url) { currentItems.push(menuItem); }
-
-      if (menuItem.children) { this.flattenUrlMenuItems(menuItem.children, currentItems); }
-    });
-    return currentItems;
   }
 
   /**
