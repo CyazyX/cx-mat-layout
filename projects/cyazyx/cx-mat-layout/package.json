@@ -20,9 +20,9 @@
     "mat-toolbar"
   ],
   "peerDependencies": {
-    "@angular/common": "~10.0.4",
-    "@angular/core": "~10.0.4",
-    "@angular/material": "~10.0.2"
+    "@angular/common": "~10.0.5",
+    "@angular/core": "~10.0.5",
+    "@angular/material": "~10.1.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
