@@ -3,7 +3,7 @@
 /**
  * Navigation item for storing the `URL` parts to be placed in the navigation menu.
  */
-export interface NavigationItem {
+export interface NavigationItem<T = any> {
     /**
      * `Required`.
      * Could be any string to allow for easy tracking of the menu items.
@@ -66,5 +66,13 @@ export interface NavigationItem {
      * The children for this navigation item.
      */
     children?: NavigationItem[];
+    /**
+     * Any data that the user needs to store as part of the menu item.
+     * For instance, you can use this to define the menu permission required or navigation.
+     * Defaults to any data type but you can define the type since @see MenuItem is generic.
+     *
+     * @since 1.1.1
+     */
+    data?: T;
 }
 
