@@ -8,8 +8,8 @@
 
 // Define the default theme (same as the example above).
 $candy-app-primary: mat-palette($mat-indigo);
-$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
-$candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
+$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent);
 
 // Tied to body
 // Start with theme-* to dynamically locate the class
@@ -17,7 +17,8 @@ body.theme-default {
     @include angular-material-theme($candy-app-theme);
 }
 
-$candy-app-theme-dark:   mat-dark-theme($candy-app-primary, $candy-app-accent);
+$candy-app-theme-dark: mat-dark-theme($candy-app-primary, $candy-app-accent);
+
 body.theme-default-dark {
     @include angular-material-theme($candy-app-theme-dark);
 }
