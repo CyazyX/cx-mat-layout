@@ -10,12 +10,13 @@ This library provides common layout setup for material menus and content setup. 
 
 The following are the versions as supported by different `@angular/core` and `@angular/material` packages;
 
-Package Version | Angular Core Version
---------------- | --------------------
-0.919.5 | 9.1.9
-0.9111.1 | 9.1.11
-1.0.0 | 10.0.0
-1.1.0 | 10.0.5
+| Package Version | Angular Core Version |
+| --------------- | -------------------- |
+| 0.919.5 | 9.1.9 |
+| 0.9111.1 | 9.1.11 |
+| 1.0.0 | 10.0.0 |
+| 1.1.0 | 10.0.5 |
+| 1.1.2 | 10.1.0 |
 
 ## Getting Started
 
