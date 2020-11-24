@@ -1,30 +1,30 @@
 {
-  "name": "@cyazyx/cx-mat-layout",
-  "version": "1.1.2",
-  "description": "Material layout common implementation scenarios and helpers. Easily setup a sidebar and top navigation with ZERO hustle.",
-  "author": {
-    "email": "mushierc@gmail.com",
-    "name": "Cyrus Mushier",
-    "url": "https://www.linkedin.com/in/mushierc/"
-  },
-  "license": "MIT",
-  "repository": "https://github.com/CyazyX/cx-mat-layout",
-  "keywords": [
-    "material",
-    "layout",
-    "sidenav",
-    "sidebar",
-    "navigation",
-    "mat-layout",
-    "mat-sidenav",
-    "mat-toolbar"
-  ],
-  "peerDependencies": {
-    "@angular/common": "~10.1.0",
-    "@angular/core": "~10.1.0",
-    "@angular/material": "~10.2.0"
-  },
-  "dependencies": {
-    "tslib": "^2.0.0"
-}
+    "name": "@cyazyx/cx-mat-layout",
+    "version": "1.2.0",
+    "description": "Material layout common implementation scenarios and helpers. Easily setup a sidebar and top navigation with ZERO hustle.",
+    "author": {
+        "email": "mushierc@gmail.com",
+        "name": "Cyrus Mushier",
+        "url": "https://www.linkedin.com/in/mushierc/"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/CyazyX/cx-mat-layout",
+    "keywords": [
+        "material",
+        "layout",
+        "sidenav",
+        "sidebar",
+        "navigation",
+        "mat-layout",
+        "mat-sidenav",
+        "mat-toolbar"
+    ],
+    "peerDependencies": {
+        "@angular/common": "~11.0.2",
+        "@angular/core": "~11.0.2",
+        "@angular/material": "~11.0.1"
+    },
+    "dependencies": {
+        "tslib": "^2.0.0"
+    }
 }
