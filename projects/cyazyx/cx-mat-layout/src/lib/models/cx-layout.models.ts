@@ -75,4 +75,3 @@ export interface NavigationItem<T = any> {
      */
     data?: T;
 }
-
