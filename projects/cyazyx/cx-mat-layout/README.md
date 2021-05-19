@@ -14,6 +14,7 @@ The following are the versions as supported by different `@angular/core` and `@a
 | 1.1.0           | 10.0.5               |
 | 1.1.2           | 10.1.0               |
 | 1.2.0           | 11.0.2               |
+| 1.3.2           | 12.0.2               |
 
 ## Getting Started
 
